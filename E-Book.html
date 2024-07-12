@@ -3,80 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web E-Book</title>
+    <title>Yurnosz E-Book</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            text-align: justify;
         }
 
         header {
             background: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 1rem 0;
             text-align: center;
         }
 
         nav {
-            background: #444;
-            padding: 10px;
+            background: #555;
+            color: #fff;
+            padding: 0.5rem 0;
+            text-align: center;
         }
+        
+        .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
 
         nav a {
             color: #fff;
-            margin: 0 10px;
+            margin: 0 1rem;
             text-decoration: none;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
         }
 
         .container {
-            padding: 20px;
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-
-        .profile img {
-            border-radius: 50%;
-            margin-right: 20px;
-        }
-
-        .profile .details {
-            max-width: 500px;
-        }
-
-        .book-cover {
-            width: 100px;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .table-of-contents {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .table-of-contents li {
-            margin-bottom: 10px;
-        }
-
-        .table-of-contents a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .table-of-contents a:hover {
-            text-decoration: underline;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
         .page {
@@ -85,23 +66,48 @@
 
         .page.active {
             display: block;
-            animation: fadeIn 0.5s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .profile img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .book-list img {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .book {
+            margin-bottom: 2rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .ul {
+          list-style-type: none;
+          padding: 0;
+          text-decoration: none;
         }
 
         footer {
+            text-align: center;
+            padding: 1rem 0;
             background: #333;
             color: #fff;
-            text-align: center;
-            padding: 10px 0;
             position: fixed;
             width: 100%;
             bottom: 0;
@@ -110,98 +116,465 @@
 </head>
 <body>
     <header>
-        <h1>Web E-Book</h1>
+        <h1>Yurnosz E-Book</h1>
     </header>
     <nav>
         <a href="#" onclick="showPage('home')">Home</a>
         <a href="#" onclick="showPage('profile')">Profile</a>
-        <a href="#" onclick="showPage('book1')">Book 1</a>
-        <a href="#" onclick="showPage('book2')">Book 2</a>
+        <a href="#" onclick="showPage('horror')">Horor</a>
+        <a href="#" onclick="showPage('fantasy')">Fantasi</a>
+        <a href="#" onclick="showPage('romance')">Romantis</a>
     </nav>
     <div class="container">
         <div id="home" class="page active">
-            <h2>Welcome to Web E-Book</h2>
-            <p>Select a book from the navigation menu to start reading.</p>
+            <h2>Welcome to Yurnosz E-Book</h2>
+            <p>Explore various books by navigating through the categories.</p>
         </div>
         <div id="profile" class="page">
+            <h2>Profil</h2>
             <div class="profile">
-                <img src="profile.jpg" alt="Profile Picture" width="100" height="100">
-                <div class="details">
-                    <h2>Web Developer</h2>
-                    <p>Name: John Doe</p>
-                    <p>Bio: John Doe is a professional web developer with over 10 years of experience in creating stunning and functional websites.</p>
+                <img src="Profil.jpg" alt="Profile Picture">
+                <p><strong>Name:</strong> Septian Ramdoni</p>
+                <p><strong>Description:</strong> Professional web developer creating an engaging e-book experience.</p>
+            </div>
+        </div>
+        <!-- Buku Horor -->
+        <div id="horror" class="page">
+            <h2>Buku Horor</h2>
+            <div class="book-list">
+                <div class="book">
+                    <h3><a href="#" onclick="showPage('horror-book1')">Kuntilanak Pondok Indah</a></h3>
+                    <img src="horor1.jpg" alt="Kuntilanak Pondok Indah">
+                    <p><strong>Penulis:</strong> Annisa Haroen</p>
+                    <p><strong>Diterbitkan:</strong> 2024</p>
+                    <p><strong>Sinopsis:</strong> Dia sering menangis di tengah malam dan berdiri mematung di ujung tangga di sebuah rumah yang mewah dan kokoh, dengan cat tembok yang menguning dan mulai memudar serta halaman rumah yang tidak terurus. Dialah yang sering kalian dengar kisahnya. Sosok kuntilanak menakutkan di Pondok Indah, sosok hantu perempuan yang kerap mengganggu orang-orang di Pondok Indah. Jangan sekali-sekali kalian mencari tahu siapa kuntilanak itu, atau dia sendiri yang akan memberitahukannya lewat teror yang paling menakutkan dalam hidupmu</p>
+                </div>
+                <div class="book">
+                    <h3><a href="#" onclick="showPage('horror-book2')">Buku Horor 2</a></h3>
+                    <img src="horror-book2.jpg" alt="Buku Horor 2">
+                    <p><strong>Penulis:</strong> Penulis 2</p>
+                    <p><strong>Diterbitkan:</strong> 2024</p>
+                    <p><strong>Sinopsis:</strong> Sinopsisof horror book 2.</p>
                 </div>
             </div>
         </div>
-        <div id="book1" class="page">
-            <h2>Book 1 Title</h2>
-            <img src="book1-cover.jpg" alt="Book 1 Cover" class="book-cover">
-            <p><strong>Author:</strong> Jane Smith</p>
-            <p><strong>Published:</strong> January 1, 2020</p>
-            <p><strong>Synopsis:</strong> This is a brief synopsis of the book. It gives an overview of the story and main points.</p>
-            <p><strong>Prolog:</strong> This is the prolog of the book. It introduces the story and sets the scene for the reader.</p>
-            <h3>Table of Contents</h3>
-            <ul class="table-of-contents">
-                <li><a href="#" onclick="showPage('book1-chapter1')">Chapter 1</a></li>
-                <li><a href="#" onclick="showPage('book1-chapter2')">Chapter 2</a></li>
-                <li><a href="#" onclick="showPage('book1-chapter3')">Chapter 3</a></li>
+        <!-- Buku Fantasi -->
+        <div id="fantasy" class="page">
+            <h2>Buku Fantasi</h2>
+            <div class="book-list">
+                <div class="book">
+                    <h3><a href="#" onclick="showPage('fantasy-book1')">Buku Fantasi 1</a></h3>
+                    <img src="fantasy-book1.jpg" alt="Buku Fantasi 1">
+                    <p><strong>Penulis:</strong> Penulis 1</p>
+                    <p><strong>Diterbitkan:</strong> 2024</p>
+                    <p><strong>Sinopsis:</strong> Sinopsisof fantasy book 1.</p>
+                </div>
+                <div class="book">
+                    <h3><a href="#" onclick="showPage('fantasy-book2')">Buku Fantasi 2</a></h3>
+                    <img src="fantasy-book2.jpg" alt="Buku Fantasi 2">
+                    <p><strong>Penulis:</strong> Penulis 2</p>
+                    <p><strong>Diterbitkan:</strong> 2024</p>
+                    <p><strong>Sinopsis:</strong> Sinopsisof fantasy book 2.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Buku Romantis -->
+        <div id="romance" class="page">
+            <h2>Buku Romantis</h2>
+            <div class="book-list">
+                <div class="book">
+                    <h3><a href="#" onclick="showPage('romance-book1')">Buku Romantis 1</a></h3>
+                    <img src="romance-book1.jpg" alt="Buku Romantis 1">
+                    <p><strong>Penulis:</strong> Penulis 1</p>
+                    <p><strong>Diterbitkan:</strong> 2024</p>
+                    <p><strong>Sinopsis:</strong> Sinopsisof romance book 1.</p>
+                </div>
+                <div class="book">
+                    <h3><a href="#" onclick="showPage('romance-book2')">Buku Romantis 2</a></h3>
+                    <img src="romance-book2.jpg" alt="Buku Romantis 2">
+                    <p><strong>Penulis:</strong> Penulis 2</p>
+                    <p><strong>Diterbitkan:</strong> 2024</p>
+                    <p><strong>Sinopsis:</strong> Sinopsisof romance book 2.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Kuntilanak Pondok Indah -->
+        <div id="horror-book1" class="page">
+            <h2>Kuntilanak Pondok Indah</h2>
+            <p><strong>Prolog:</strong> Napasnya berburu disertai keringat dingin yang keluar dari sela pori-porinya. Sudah hampir lima belas menit, dia memperhatikan keadaan sekitar yang sudah mulai sepi. Terdengar suara derikan jangkrik dan katak yang saling menyela bersembunyi di balik tumbuhan. Senjata yang a simpan di samping tempat ia terduduk tampak mengkilat terkena pantulan sinar rembulan. Setelah menghirup udara lewat hidung dan mengeluarkannya lewat mulut sebanyak dua kali, dia pun meraih senjatanya untuk diselipkan di punggungnya lalu mulai berjalan memasuki belakang rumah itu untuk menyelesaikan misinya.</p>
+            <p>Gadis itu mengenakan daster berwarna putih transparan sangat pendek dengan belahan cada rendah yang semakin membuatnya marah. Dengan wajah yang berbinar, gadis itu menuruni tangga. Dia tersenyum sambil membukakan pintu dan sebelum mengatakan kata sambutan, sebuah golok sudah menyayat lehernya yang memberikan luka dalam sehingga darahnya langsung menggelegak keluar.</p>
+            <p>Dia menyaksikan gadis itu tersungkur. Beberapa saat kemudian, dia menutup pintu di belakang lalu menguncinya. Gadis itu masih bernyawa, tetapi dia tahu bahwa gadis itu sedang sekarat. Nafasnya tersenggal dan matanya membelalak ketakutan. Dia pun menjambak rambut gadis itu lalu menariknya melalui tangga menuju kamar.</p>
+            <p>Dia berlutut menunggu gadis itu meregang nyawa. Tetapi gairah untuk menyakiti gadis itu semakin membuncah. Dia akan menghentikan penderitaannya dengan menebas leher gadis itu hingga terputus dari tubuhnya. Setelah merasa belum puas, dia pun kembali bersenang-senang dengan memotong kedua kakinya dan kedua tangannya hingga enam bagian.</p>
+            <p>Belum pernah dirinya merasakan kepuasan hingga klimaks seperti itu. Dia berdiri, pakaiannya basah oleh keringat dan darah. Dia keluar kamar dengan tenang seakan tidak pernah terjadi apa pun, dia membersihkan badannya dengan pancuran yang ada di kebun samping rumah.</p>
+            <p>Sepanjang jalan, dia merasakan angin malam yang perlahan menghapus keringatnya. Dia pulang ke rumah dalam keadaan senang dan puas setelah sebelumnya berhenti di sebuah jembatan untuk membuang plastik yang berisikan baju dan senjatanya sehingga polisi tidak akan menemukan bukti apa pun untuk menjebloskan dirinya ke dalam jeruji besi. Dirinya masih bisa merasakan darah korbannya yang hangat, menikmati suara isakannya dan menyaksikan setiap kesakitannya.</p>
+            <p>Dia pun langsung menaiki tempat tidurnya, tertawa membayangkan berita gempar yang akan di saksikan keesokan harinya sambil menikmati secangkir teh panas. Dia pun cepat-cepat menutup badannya dengan selimut lalu memejamkan matanya hingga tertidur pulas.</p>
+            <h3>Daftar Isi</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('horror-book1-chapter1')">Bagian 1</a></li>
+                <li><a href="#" onclick="showPage('horror-book1-chapter2')">Bagian 2</a></li>
+                <li><a href="#" onclick="showPage('horror-book1-chapter3')">Bagian 3</a></li>
             </ul>
+            <a href="#" class="back-button" onclick="showPage('horror')">Kembali ke Buku Horor</a>
         </div>
-        <div id="book1-chapter1" class="page">
-            <h2>Book 1: Chapter 1</h2>
-            <p>This is the content of chapter 1.</p>
-            <p><strong>Page:</strong> 1</p>
+        <div id="horror-book1-chapter1" class="page">
+            <h2>Kuntilanak Pondok Indah: Bagian 1</h2>
+            <p>Tiga cangkir kopi yang Pearly habiskan malam itu belum juga mengusir kantuknya. Bahkan sudah bolak-balik ke toilet untuk membasuh wajahnya dengan air dingin, rasa kantuk masih menyelimuti matanya. Dia menyandarkan kepalanya ke sandaran kursi sambil meregangkan otot-ototnya yang tegang dan menaikkan kakinya ke atas meja.
+             </p>
+             <p> Waktu menunjukkan pukul 22.47. Devon sudah closing segmen old song-nya dengan lagu penutup lemon tree dari Fool's Garden yang berarti sebentar lagi Pearly harus bersiap untuk mengudara. Sebenarnya Pearly adalah seorang insomnia. Bahkan sering dijuluki batwoman oleh pacarnya sendiri. Tetapi hari ini bisa dibilang penyakit insomnia Pearly sudah mencapai batas. Dia sama sekali belum tidur selama dua hari karena Cherise teman satu rumahnya, kemarin baru launching</p>
+             <p>Cherise Spa and Boutique. Mereka mengadakan party semalaman, lalu pagi harinya Pearly langsung ke radio untuk mengudara selama dua jam lanjut dengan perawatan gratis di cherise spa.</p>
+             <p>Kamu sih Sayang, tadi bukannya tidur siang malah perawatan seharian." Satria kembali memijit kedua pundak Pearly.</p>
+             <p>"ini kan first day openingnya cherise spa sayang. Jadi gratisan deh perawatan dari ujung rambut sampai ujung kaki aku. Kan lumayan bisa hemat hampir dua jutaan. Liat nih kuku aku cantik kan? Ini warna baru namanya frizzy mango. Kuku kaki aku juga pake kutek bling-bling loh. Mau liat?" Pearly memegang ujung high heels hendak memperlihatkan warna kuku kaki barunya, tetapi ditahan oleh Satria.</p>
+             <p>"Udah udah gak usah. Kamu kok jadi ketularan Cherise sih? Nanti kena debu dikit aja teriaknya udah kaya kena setrum 2000 volt." Pearly tertawa sambil berdiri untuk masuk ke studio.</p>
+             <p>"Aku masuk dulu ya Sayang. Kamu baik baik ya tungguin akunya." Pearly membungkuk untuk mencium pipi Satria lalu berbisik.</p>
+             <p>"By the way aku juga di waxing loh," Pearly mengedipkan mata dan berjalan ke arah studio, dia menahan pintu studio untuk berbalik pada Satria yang mulutnya sedang menganga dengan tampang terkejut.</p>
+             <p>Maksud aku waxing ketiak. Hahahahaha" Pearly menutup pintu sementara Satria menghembuskan napasnya yang tertahan sambil menggelengkan kepalanya lalu tertawa.</p>
+             <p>"80.9 homey radio kembali bersama saya Pearly, masih dalam segmen Spooky Night. Itu dia tadi cerita dari Sonia di Cikarang yang katanya sering ngeliat penampakan pocong di pohon muncang sebelah rumahnya dan membuat semua orang yang mencoba menebangnya malah kesurupan, bahkan sampai ada yang meninggal dunia. Serem juga ya. Oke masih ditunggu penelepon selanjutnya,</p>
+             <p>silakan menghubungi line kita untuk menceritakan pengalaman mistis kamu atau orang terdekat kamu. Yap, sepertinya ada satu penelepon lagi halooo.."</p>
+             <p>"Haloo."</p>
+             <p>"Iya dengan siapa di mana?"</p>
+             <p>"Rachel di pondok indah."</p>
+             <p>"Oke Rachel, ini pengalaman kamu sendiri atau orang terdekat kamu?"</p>
+             <p>"Saya sendiri Mbak."</p>
+             <p>"Sip, langsung aja ke ceritanya ya. Bisa dimulai.."</p>
+             <p> "Kejadiannya di rumah saya sendiri. Saya merantau dari Jogja dan baru tinggal di rumah ini hampir dua minggu. Menurut banyak orang, rumah ini ada penghuninya. Seorang wanita yang di mutilasi hingga enam bagian. Saya sih tidak takut, karena rumah seperti ini cocok untuk observasi saya dalam pembuatan project buku horror saya, biar dapet soul-nya gitu Mbak. Lagian, saya punya six sense, jadi sudah terbiasa dengan hal seperti itu. Saya juga punya kalung pelindung yang diberikan turun-temurun dari buyut saya yang terbuat dari</p>
+             <p>batu safir hitam, di dalamnya terdapat ayat. Saya keturunan terakhir, jadi nantinya saya akan kasih kalung ini pada anak saya atau orang yang saya percaya. Kalung ini juga bisa melindungi saya dari berbagai kejahatan makhluk apa pun. Jadi saya yakin kalau roh mereka tidak akan bisa menyakiti fisik saya."</p>
+             <p>"Jadi kamu pernah lihat penampakan cewek yang dibunuh itu?"</p>
+             <p>"Sering. Malah tiap malam wanita itu menangis dan saya selalu mencium bau amis. Kebetulan kamar yang saya pakai adalah tempat di mana wanita itu di mutilasi."</p>
+             <p>Gile, berani bener!</p>
+             <p>"Kamu bisa certain gak penampakan cewek itu kayak gimana?"</p>
+             <p>"Kadang saya cuman lihat kepalanya saja, bahkan potongan tubuh lainnya. Tapi saya juga pernah lihat dia secara utuh sedang berdiri di ujung tangga, tubuhnya berlumuran darah, wajahnya pucat dan matanya memancarkan kesedihan sekaligus kemarahan."</p>
+             <p>Tanpa disadari, Pearly mengusap tengkuknya.</p>
+             <p>"Ekspresi kamu waktu liat dia gimana sih? Kamu kaget atau pura-pura gak lihat?"</p>
+             <p>"Saya gak kaget. Bahkan beberapa kali saya coba ajak dia bicara tapi dia hanya menangis,"</p>
+             <p>"Hhmmm.. oke Rachel, ada yang lainnya? Mungkin penampakan lain selain wanita itu atau komu tahu tentang pembunuhnya akhirnya kayak gimana?"</p>
+             <p>"Gak ada penampakan lain sih, selain nenek- nenek di halaman belakang yang suka nyisir secara slow motion gitu. Kalau soal pembunuhnya, katanya gak pernah ditemukan karena gak ada bukti yang bisa di selidiki polisi. Kayaknya cuman segitu aja deh yang mau saya ceritain."</p>
+             <p>"Ok, thank you Rachel sudah berbagi cerita mistis bersama kita. Selamat malam dan sukses buat bukunya yaa."</p>
+             <p>"Makasih, selamat malam."</p>
+             <p>"Ya, itu dia cerita terakhir dari Rachel di Pondok Indah. Cukup membuat bulu kuduk saya merinding nih listener, tapi sayang sekali, sudah waktunya saya undur diri, kita ketemu lagi di malam jumat selanjutnya. Harap periksa jendela kamar kamu dan sudut-sudut ruangan, cause this is a spooky niiight"</p>
+             <p>Pearly mematikan mikrofon dan meletakkan headset-nya lalu melesat keluar setelah meng ucapkan terima kasih kepada Billy sang produser</p>
+             <p>Satria berbaring di sofa dengan kaki diangkat ke pegangan sofa dan sebuah majalah menutupi wajahnya. Sementara di sofa sebelahnya, Angga sedang menyeduh kopi dan Shena seorang gadis tomboy sedang sibuk dengan gadget-nya. Giliran mereka mengudara selama tiga jam. Dua orang kocak yang sangat menghibur dan bisa melebur rasa takut listener setelah mendengarkan spooky night.</p>
+             <p>"Aaaahhh, akhirnya udah gak sabar pengen jatohin diri ke kasur Pearly mengambil cokelat panas milik Shena dan langsung meminumnya.</p>
+             <p>"Yaelah, kebiasaan nih orang maen samber aja."</p>
+             <p>"Sorry honey, gue males ke pantry." Pearly menyeringai. Nasib para penyiar malam karena OB hanya bekerja pada jam tujuh pagi sampai jam sebelas malam dengan pembagian dua shift.</p>
+             <p>Pearly mengambil jaket kulit berwarna cokelat gelap milik Satria dari sandaran kursi, lalu melepas majalah yang menutupi wajah kekasihnya itu.</p>
+             <p>"Sayaang, bangun dong kita pulang sekarang." Satria terbangun dengan mata memerah. Setelah mereguk kopi terakhir kalinya, Satria dan Pearly pun berpamitan kepada Angga dan Shena yang akan memasuki studio.</p>
+             <p>Nissan Terrano milik Satria melaju mengarah ke rumah kontrakan Pearly yang hanya mencapai lima belas menit dari radio tempat Pearly bekerja. Setiap siaran malam, sudah menjadi kewajiban Satria untuk mengantar jemput Pearly semenjak kejadian perampokan yang untungnya bisa Pearly hindari berkat semprotan air cabai dari Ibunya yang selalu Pearly simpan di dalam tasnya.</p>
+             <p>"Kamu langsung tidur ya Sayang, besok kalau ada apa-apa langsung telepon aku aja."</p>
+             <p>"Ok Sayang, besok aku siaran jam 10 siang. Aku pergi sendiri aja deh, pulangnya aku langsung ke four hole ya, udah gatel megang stik."</p>
+             <p>"Gitu dong, anak-anak juga udah kangen tuh tanding sama kamu." Satria menepikan mobilnya di depan rumah Pearly. Tampak mobil Honda swift merah milik Cherise terparkir.</p>
+             <p>"Tumben tuh anak jam segini udah balik." Cherise adalah seorang DJ yang selalu diundang ke beberapa club hampir setiap malam. Sebenarnya dia sudah berhenti atas kemauan David tunangannya seorang keturunan Amerika, tetapi tetap saja naluri gila party-nya masih kenceng.</p>
+             <p>"Capek kali, kemaren kan kalian sibuk seharian." kata Satria "Yaudah kamu juga istirahat gih. Jangan lupa vitaminnya diminum."</p>
+             <p>"Oke pak bos, sampai besok." Pearly mencium bibir satria sekilas lalu beranjak turun. Satria memastikan Pearly mengunci pintunya, dan setelah dia melambaikan tangannya dari balik jendela, Satria pun menggas mobilnya lagi.</p>
+             <p>Pearly menyalakan lampu ruang tamu dan mendapati botol wine yang isinya tinggal seperempat serta dua gelas crystal yang sudah kosong. Dia menganggap Cherise dan David telah menghabiskan malam bersama di sini. Pearly pun mengambil botol tersebut lalu pergi ke dapur untuk mengambil gelas baru. Setelahnya, Pearly memasuki kamar, melepaskan high heels, melempar tas ke kursi, melepaskan seluruh pakaiannya dan menggantinya dengan T-shirt berwarna putih saja. Dirinya terlalu lelah untuk membersihkan diri ke kamar mandi. Dia menuang wine ke dalam gelas dan menikmati setiap tegukannya, sedikit wine akan meringankan kepalanya. Pearly pun akhirnya jatuh tertidur hingga sembilan jam.</p>
+            <a href="#" class="back-button" onclick="showPage('horror-book1')">Kembali ke Daftar Isi</a>
         </div>
-        <div id="book1-chapter2" class="page">
-            <h2>Book 1: Chapter 2</h2>
-            <p>This is the content of chapter 2.</p>
-            <p><strong>Page:</strong> 2</p>
+        <div id="horror-book1-chapter2" class="page">
+            <h2>Kuntilanak Pondok Indah: Bagian 2</h2>
+           <p>"Good morning baby." Cherise menuang orange juice ke dua gelas panjang untuknya dan untuk Pearly.</p>
+ <p>"Morning." Pearly menyambar salah satu gelasnya.</p>
+ <p>"Cuci muka dulu kali Beb biar segeran."</p>
+ <p>"Ck, minum dingin juga kan bikin seger." Sahut nya sambil meneguk minumannya hingga setengah gelas. "Tumben semalam lu pulang cepet."</p>
+ <p>"Oh, biasalah si David pagi ini ada meeting sama klien-nya yang dari Seoul itu. Jadi gak bisa full party deh."</p>
+ <p>"Eh, siang ini lo ada acara gak? Ke four hole yuk balik gue siaran. Udah gatel nih gue pengen ngalahin si Robby."</p>
+ <p>"Ayok aja. Gue paling stand by di tempat spa. Lo jemput gue di sana aja ya."</
+ <p>"Okey"</p>
+ <p>Four hole adalah tempat billiard milik Satria yang berada di salah satu gedung mal. Tempat di mana Pearly dan Satria bertemu. Ketika itu Pearly mengikuti pertandingan Billiard se-provinsi DKI Jakarta. Satria terkesan ketika melihat Pearly adalah satu-satunya wanita dalam sepuluh besar dan akhirnya mendapatkan peringkat kedua. Selain itu, Phisically Pearly terlihat menarik meski tidak terlalu cantik. Tetapi wajahnya tidak membosankan dan memiliki tahi lalat di satu sisi rahangnya. Alisnya melengkung indah dengan sorot matanya yang tajam menunjukkan kekeraskepalaan dan kecerdasan. Sementara Satria berbadan tegap dan berdada bidang dengan rambutnya yang cepak dan mata seperti elang. Salah satu yang menarik dari Satria adalah senyumnya yang miring dan menampakkan sebelah lesung pipitnya.</p>
+ <p>"Eh, lo inget si Sharen yang dateng ke peresmian spa gue gak? Yang gue bilang bokongnya abis di implant itu?"</p>
+ <p>Pearly hanya mengangguk sambil melahap roti isi keju yang diolesi dengan mayonnaise dingin.</p>
+ <p>"Rencananya, dia mau jadi franchise spa gue. Asik ga tuh? Gue ambil royalti berapa ya? Sepuluh persen masih manusiawi gak sih?"</p>
+ <p>Pearly mengangguk lagi.</p>
+ <p>"Hhhh.. gue minta pendapat David aja deh. Doi kan jiwa bisnis banget, tiap lahan yang dipegang dia pasti jadi emas semua. Hihi."</p>
+ <p>Pearly tidak menjawab, sementara mulutnya penuh dengan roti, dia sudah mengolesi roti yang lain.</p>
+ <p>"Ih dasar nih anak. Lo gak pernah belajar table manner ya? Masuk restoran Perancis, lo bisa di arak tau gak."</p>
+ <p>"Lapeeeer. Lo inget gak sih kemarin kita cuman makan rujak sama kebab doang. Abis itu gue belom makan lagi sampe sekarang" Pearly kembali melahap roti ketiganya, sementara Cherise meringis.</p>
+ <p>Four Hole berada di lantai tiga dengan tembok dan pintu yang terbuat dari kaca sehingga bisa dilihat dari arah luar. Di tengah ruangan, terdapat bar dikelilingi delapan bar stool-nya dengan koleksi berbagai minuman beralkohol, soft drink dan beberapa jenis coffee. Bagian depan terdapat empat pasang sofa besar berwarna abu gelap, sementara di bagian tengah ada beberapa kursi yang terbuat dari kayu mahoni dan 12 meja billiard di bagian belakang dengan masing-masing meja terdapat satu wanita yang bertugas untuk mengatur bola bahkan untuk dijadikan lawan main dengan dresscode berupa flannel dan hotpants denim.</p>
+ <p>Satria duduk bersama Robby di bar ditemani segelas teaquila menunggu Pearly dan Cherise. Beberapa pelanggan tetap, sebagian besar mengenal Pearly akibat kelihaiannya bermain billiard. Dua puluh menit kemudian, Pearly datang bersama Cherise yang sama-sama memakai kaos putih dan celana jeans.</p>
+ <p>"Ini dia ratu kita datang!" seru Robby.</p>
+ <p>Robby adalah pemenang yang mengalahkan Pearly di pertandingan tempo hari. Dia juga</p>
+ <p>merupakan sahabat Satria yang rencananya akan memegang cabang four hole di Bandung yang sedang mereka rencanakan.</p>
+      <p>"Wah, segan nih ada sang juara." Pearly dan Robby melakukan Tos disusul Cherise yang sambil berbicara dengan David di telepon.</p>
+     <p>Pearly menghampiri Satria dan mencium kedua pipinya.</p>
+     <p>"Minum?" tawar Satria</p>
+     <p>"Iya dong please. Softdrink aja deh. Cher lo mau minum apa?"</p>
+     <p>"Sama." Cherise menyudahi teleponnya lalu duduk di sebelah Robby.</p>
+     <p>Setengah jam kemudian, Pearly sudah berada di salah satu meja billiard bersama Robby untuk bertanding dalam permainan nine ball. Pearly mendapat giliran pertama. Dia mengambil Chalk untuk menghaluskan stik-nya lalu mengambil posisi. Dengan wajah yang memancarkan konsentrasi tinggi dan pupil matanya selalu bergerak menandakan kecerdasan - di mana untuk pertama kalinya hal itu membuat Satria terkesan.</p>
+     <p>Dua bola berhasil masuk dan gagal untuk bola ketiga. Robby mengambil alih, setelah memasukkan bola pertama, Robby pun berhasil memasukkan bola merah dengan menggunakan teknik drow shoot.</p>
+      <p>"Sialan" gerutu Pearly.</p>
+     <p>Robby menyeringai. Mereka pun meneruskan permainan hingga sepuluh kali dengan skor 6-4.</p>
+     <p>Robby pemenangnya.</p>
+     <p>Pearly menghampiri Cherise yang duduk di sofa depan sambil menikmati segelas orange juice sambil menggerutu.</p>
+     <p>"Kalah lagi kan lo?" kata Cherise.</p>
+     <p>*6-4. Pake jampe apaan ya si Robby bisa hebat gitu maennya!"</p>
+     <p>Satria yang membawakan Softdrink tertawa mendengar kekesalan Karin "Robby emang jago nembak bola. Cuman sayangnya dia gak jago nembak cewek."</p>
+     <p>Cherise dan Pearly pun tertawa.</p>
+      <p>"Aku masih penasaran deh yang. Pokoknya aku bakalan terus penasaran sebelum bisa ngalahin Robby."</p>
+     <p>Satria mengacak rambut kekasihnya itu sambil nyengir. Dia jadi teringat waktu pertama kali berkenalan dengan Karin.</p>
+     <p>Waktu itu Karin sedang mengelap keringatnya setelah menyelesaikan pertandingan dengan Robby. Meskipun kalah, Satria sangat terkesan dengan Karin sebagai wanita yang bisa masuk dalam sepuluh besar. Satria meminta dua gelas Softdrink kepada bartender dan membawanya pada Karin.</p>
+     <p>"Selamat." katanya sambil menyerahkan salah satu gelasnya pada wanita itu. Karin yang terduduk menengadahkan kepalanya melihat Barry.</p>
+     <p>"Buat apa nih."</p>
+     <p>"Pertandingan barusan."</p>
+     <p>"Gue kalah kali." Jawab Pearly sambil mengambil gelas yang diberikan Barry dan meminumnya hingga dua kali tegukan.</p>
+     <p>"Well, selamat untuk menjadi wanita satu- satunya yang bisa tanding sama temen gue Robby. Skor kalian cuman beda satu angka. Itu berarti Robby bisa anggep lo ancaman buat dia."</p>
+      <p>Pearly tertawa dan mengulurkan tangannya untuk memperkenalkan diri. Tetapi sebelum menye- butkan nama, Satria mendahuluinya.</p>
+     <p>"Nama lo Pearly, asal Bandung, mahasiswa fikom dan udah dapet kejuaraan Billiard seprovinsi jawa barat dan sekarang kerja di salah satu radio swasta." Kata Satria sambil terus menyalami tangan Pearly dengan erat.</p>
+     <p>"Woww! Haha dapet info dari mana?"</p>
+     <p>"Gue yang seleksi lo buat lomba ini, dan gue udah perhatiin lo dari lomba pertama tiga hari lalu. Sejak itu gue juga denger siaran lo."</p>
+     <p>Pearly menggigit bibir bawahnya sambil ter- tawa "Nama lo?"</p>
+     <p>"Satria."</p>
+     <p>Saat itu keduanya menyadari bahwa mereka belum melepaskan tangannya. Pearly pun menarik</p>
+     <p>tangannya lalu mengangkat gelasnya "Well, salam kenal"</p>
+      <p>Sejak itu, Satria selalu menghampiri Pearly setiap melihatnya mendatangi four hole. Sampai akhirnya Pearly mengetahui kalau Satria adalah owner tempat tersebut.</p>
+     <p>Pada hari ulang tahun Pearly, Satria memberikan surprise dengan beberapa teman sepermainan Billiard termasuk Cherise dan David yang sengaja di undang ke tempat tersebut. Pearly yang sedang berkonsentrasi menyodok bola, terkejut dengan nyanyian happy birthday dari teman-temannya dan Satria yang membawakan cake bertuliskan: happy birthday, beautiful. I love you!</p>
+     <p>Pearly memberikan potongan kue pertama pada Satria dan memberikan ciuman di bibirnya sebagai ucapan terima kasih sambil berbisik "I love you too."</p>
+            <a href="#" class="back-button" onclick="showPage('horror-book1')">Kembali ke Daftar Isi</a>
         </div>
-        <div id="book1-chapter3" class="page">
-            <h2>Book 1: Chapter 3</h2>
-            <p>This is the content of chapter 3.</p>
-            <p><strong>Page:</strong> 3</p>
-        </div>
-        <div id="book2" class="page">
-            <h2>Book 2 Title</h2>
-            <img src="book2-cover.jpg" alt="Book 2 Cover" class="book-cover">
-            <p><strong>Author:</strong> John Doe</p>
-            <p><strong>Published:</strong> February 1, 2021</p>
-            <p><strong>Synopsis:</strong> This is a brief synopsis of the book. It gives an overview of the story and main points.</p>
-            <p><strong>Prolog:</strong> This is the prolog of the book. It introduces the story and sets the scene for the reader.</p>
-            <h3>Table of Contents</h3>
-            <ul class="table-of-contents">
-                <li><a href="#" onclick="showPage('book2-chapter1')">Chapter 1</a></li>
-                <li><a href="#" onclick="showPage('book2-chapter2')">Chapter 2</a></li>
-                <li><a href="#" onclick="showPage('book2-chapter3')">Chapter 3</a></li>
+        <div id="horror-book1-chapter3" class="page">
+            <h2>Kuntilanak Pondok Indah: Bagian 3</h2>
+             <p>Pearly kembali pada segmen Spooky Night. Sudah 45 menit dia mengudara, dan sudah mendapatkan dua penelepon. Penelepon pertama menceritakan tentang tetangganya yang tengah hamil delapan bulan dan selalu diikuti oleh kuntilanak. Sementara penelepon kedua menceritakan tentang seorang wanita yang selalu bernyanyi di dalam gudang sebuah perusahaan setelah gudang itu dikunci pada jam bubar kerja.</p>
+            <p>Jingle homey radio sudah terdengar setelah jeda iklan. Pearly kembali menggunakan headset-nya.</p>
+            <p>"80.9 homey radio kembali lagi bersama saya Pearly dalam Spooky Night. Kita sudah mendapatkan dua orang penelepon. Gimana? Sudah cukup? Atau ada lagi yang mau berbagi cerita mistisnya? Masih ada waktu sekitar lima belas menit lagi. Yap sepertinya ada telepon masuk, haloo.."</p>
+            <p>Tut..tut..tut..</p>
+      <p>"Sayang sekali terputus, ayo ada lagikah yang mau berbagi cerita?" Pearly menunggu hingga 10 detik dan karena untuk kedua kalinya telepon terputus, kemampuan improvisasi pun harus digunakan untuk mengisi waktu yang tersisa.</p>
+     <p>"By the way saya ada satu cerita nih. Jadi dulu ada satu anak kecil yang tiba-tiba menghilang. Umurnya kurang lebih lima tahunan. Menurut salah satu temannya, terakhir dia lihat anak kecil itu bermain di dekat perkebunan pisang, yang menurut cerita penduduk kebun itu dihuni oleh seorang wewe gombel. Karena image-nya yang terkenal selalu menculik anak kecil, maka ributlah satu kampung mencari anak itu hingga dua malam berturut-turut sampai memanggil kiai bahkan dukun. Di tengah kegemparan tersebut, datanglah bapak si anak dari kampung sebelah membawa anaknya. Ternyata bukan wewe gombel yang nyulik. Tapi bapaknya sudah kangen karena setengah tahun gak ketemu anaknya setelah bercerai dengan ibunya. Hehehehehe... ok, listener saatnya saya pamit, kita bertemu lagi minggu depan. Harap</p>
+     <p>periksa jendela dan sudut ruangan kamu, cause this is a Spooky Niiiighht."</p>
+      <p>Sementara closing, Pearly mengerutkan dahi kepada Billy sang produser yang sedari tadi mengisyaratkan ada satu penelepon lagi.</p>
+     <p>"Waktunya juga udah mepet kali." kata Pearly</p>
+     <p>"Ya udah gak apa-apa. Soalnya tadi itu cewek maksa pengen ngomong sama lo."</p>
+     <p>Sebelum Pearly menanyakan siapa penelepon tersebut, telepon kembali berdering. Pearly bergerak ke arah telepon lalu mengangkatnya.</p>
+     <p>"Halo"</p>
+     <p>"Halo mbak, saya Rachel yang minggu kemarin telepon dari pondok indah itu. Mbak ingat kan?"</p>
+     <p>"Rachel? Oh iya iya, maaf Rachel kita udah closing nih, kamu bisa telepon lagi minggu depan ya."</p>
+      <p>"Maaf Mbak, tapi saya bukan mau cerita. Saya mau minta tolong, Mbak bisa gak datang ke sini? Saya diganggu setan."</p>
+      <p>Pearly baru menyadari bahwa napas Rachel tersengal-sengal dan nadanya mengisyaratkan ketakutan.</p>
+      <p>"Aduh gimana ya, kamu bisa telepon tetangga atau polisi gitu?"</p>
+     <p>"Saya kan baru di sini Mbak, gak ada tetangga yang dekat dan saya gak pernah bersosialisasi kecuali sama tukang kebun dan tukang sayur. Tolong Mbak, kalau saya keluar saya takut, saya ngunci diri di kamar. Tadi di bawah saya dilempar gelas sama pecahan guci. Sumpah saya takut, mungkin karena kesombongan saya yang tempo hari bilang kalau hantu gak bisa menyakiti fisik saya. Kayaknya dia kesinggung mbak, sumpah saya nyesel. Mbak bisa kan keluarin saya dari sini?"</p>
+     <p>"Umm.. aduh, minta alamat kamu deh. Eh tunggu bentar aku ambil kertas dulu ya"</p>
+     <p>Setelah Pearly mengambil kertas dan pulpen, dia pun mencatat alamat serta nomor telepon Rachel lalu keluar studio menemui Satria yang sedang menikmati secangkir kopi.</p>
+     <p>"Sayang, kita bisa ke alamat ini gak sekarang?</p>
+      <p>"Pondok indah? Ngapain?" Satria menengadah- kan kepalanya untuk melihat Pearly.</p>
+     <p>Pearly duduk di sebelah Satria untuk men- jelaskan perihal telepon Rachel malam jumat sebelumnya hingga pembicaraan mereka barusan.</p>
+     <p>"Aku jadi inget waktu pertama ke Jakarta. Sakit sendirian terus bingung mau minta tolong sama siapa. Ya sayang. Kasian nanti dia nunggu kelamaan."</p>
+     <p>"Ya udah deh. Tapi nanti setelah anter dia ke hotel, kita langsung pulang ya. Kalau dia minta ikut ke rumah jangan mau. Orang zaman sekarang banyak modus penipuannya, salah satunya manfaatin kebaikan orang."</p>
+     <p>"lya sayang, ya udah yuk." Pearly menarik Satria berdiri lalu berjalan menuruni tangga dan melambaikan tangan kepada satpam yang jaga malam.</p>
+     <p>Dua puluh menit kemudian, Satria memelankan laju mobilnya untuk memerhatikan nomor rumah yang mereka cari. Jalanan sudah sepi, yang terdengar hanya suara deru mobil dari kejauhan.</p>
+      <p>"47, 49, 51..."</p>
+      <p>Setelah melewati beberapa rumah, dua petak tanah terhampar kosong dan hanya ditutupi oleh pagar, Setelahnya ada satu rumah yang berada paling pojok.</p>
+     <p>"Tanah kosong ini termasuk pake nomor gak sih Yang?"</p>
+     <p>"Iya kali, berarti rumah yang di ujung itu nomor 57."</p>
+     <p>"Yaudah cepetan langsung ke situ aja."</p>
+     <p>Satria berhenti tepat di depan rumah tersebut. Angka 57 terpampang di sisi gerbang yang warna aslinya putih tetapi sudah kusam hingga menyerupai warna cokelat. Gerbangnya bahkan sudah berkarat, salah satu lampu tamannya pecah, tembok rumah tersebut sudah menguning dan mengelupas juga menggelembung di beberapa bagian akibat terkena air hujan melalui atapnya yang bocor. Rumah itu terkesan tidak berpenghuni.</p>
+     <p>"Sayang, kamu yakin alamatnya gak salah?"</p>
+     <p>"Yakin kok, tadi si Rachel sampe ulang dua kali buat mastiin."</p>
+     <p>"Coba kamu telepon dia deh. Adakan nomornya"</p>
+     <p>Seakan baru ingat mengenai nomor itu, Pearly pun merogoh tasnya untuk meraih ponsel. Dia melakukan panggilan beberapa kali tetapi nomor tersebut tidak bisa dihubungi.</p>
+     <p>"Ga aktif yang"</p>
+     <p>"Kamu tunggu disini ya"</p>
+     <p>Satria turun dari mobil lalu menyusuri gerbang mencari bel. Setelah ditemukan, bel tersebut ternyata sudah tidak berfungsi. Satria pun menghampiri Pearly yang membuka kaca mobilnya.</p>
+     <p>"Yang kayaknya ini cuman kerjaan orang iseng deh. Lain kali kamu jangan percaya gitu aja dong."</p>
+     <p>"Tapi tadi suaranya itu ngeyakinin banget yang. Aku aja sampe ikut ikutan takut. Coba aku SMS deh." Pearly mengetik SMS untuk memberitahukan Rachel bahwa mereka sudah sampai alamat yang Rachel berikan.</p>
+     <p>"Bisa aja kan dia lagi belajar akting. Pasti sekarang dia lagi kesenengan tau aktingnya berhasil bikin kamu percaya."</p>
+     <p>"Iya juga ya. Kok aku bego banget ya."</p>
+      <p>"Kamu gak bego Yang, tapi kamu terlalu baik" Satria mencium dagu Pearly lalu kembali melihat ke arah rumah itu lagi sebelum kembali duduk di balik kemudi.</p>
+     <p>"Kata orang sih bego sama terlalu baik itu beda tipis" gumam Pearly. Satria tertawa dan mengacak rambut Pearly.</p>
+     <p>"Yang penting lain kali kamu jangan langsung percaya sama orang yang enggak kamu kenal. Kalau dia niat jahat sama kamu gimana?"</p>
+     <p>"Jadi kita gak akan masuk nih?"</p>
+     <p>"Gerbangnya aja di gembok yang. Kalau aku nekat naik terus ketauan hansip, yang tadinya kita niat mau nolongin, malah dituduh maling."</p>
+     <p>"Yaudah deh, lagian serem juga rumahnya" Pearly mengusap kedua lengannya sambil bergidik sementara Satria memutar balik mobilnya menuju pulang.</p>
+     <p>Satria menepikan mobilnya, lalu ikut masuk bersama Pearly untuk makan malam bareng Cherise yang juga baru pulang dari club. Minggu ini giliran Cherise yang memasak dan Pearly yang membereskan rumah. Mereka mendapati Cherise telah menyiapkan makan malam di dapur.</p>
+      <p>"Masak apa Cher? Gue laper banget tadi gak sempet makan." Pearly melempar tasnya ke sofa lalu menghampiri meja makan.</p>
+     <p>"Idih kebiasaan. Cuci muka dulu kek, cuci kaki ganti baju." Cherise selalu cerewet mengenai kebersihan, kesehatan dan perawatan badan apalagi setelah menjadi owner spa yang selalu bikin Pearly mencibir.</p>
+     <p>"Penasaran aja. Lo masak apaan sih?" Sambil menyomot kerupuk emping, Pearly mengintip dari balik bahu Cherise untuk melihat masakannya.</p>
+     <p>"Eww.. brokoli sama wortel?"</p>
+     <p>"Gak usah protes. Ini kan bagus buat badan lo honey. Buat kesehatan sama kulit juga." Cherise mengambil piring untuk memindahkan tumis brokolinya dari kuali.</p>
+     <p>"Tau gitu tadi kita mampir ke American steak Yang." Pearly cemberut menghadap Satria yang sedang merokok.</p>
+      <p>"Gak apa-apa kali, kan bener kata Cherise. Pola makan kamu itu harus dibenerin. Kamu kan di kantor tiap hari makannya fast food terus."</p>
+     <p>Merasa di bela, Cherise pun menunjuk Satria dengan spatulanya "I love you man."</p>
+     <p>Pearly hanya memutar bola matanya dan menjatuhkan diri dikursi sambil pasrah. Kebiasaan Cherise yang menjadi vegetarian dari Senin sampai Jumat dan berubah jadi makhluk karnivora pada hari Sabtu dan Minggu. Jadi mau tidak mau ketika giliran Pearly yang memasak, dia harus menyediakan satu jenis sayuran. Pearly sangat benci makan sayur padahal orang tuanya adalah pengusaha perkebunan sayur yang mempunyai ribuan hektar kebun di Ciwidey dan Lembang.</p>
+     <p>Malam itu pun karena sangat lapar, Pearly cukup menghabiskan banyak makan mesti kadang sambil menahan napasnya.</p>
+      <p>"Eh tadi emang kalian dari mana sih? Jam segini baru balik?" tanya Cherise.</p>
+      <p>"Tau tuh ada penelepon jail. Dia minta tolong gue buat dateng ke rumahnya. Katanya sih lagi diganggu setan. Taunya pas gue samperin, itu rumah kosong."</p>
+     <p>Cherise tertawa sampai tersedak minumannya, dia mengambil tissue dan mengelap mulutnya "Lagian emang dia kira elu itu dukun bisa ngusir hantu?"</p>
+     <p>Pearly hanya mengangkat bahu sambil menye- dot strawberry smoothie-nya sampai habis. Satria mematikan rokoknya lalu pamit untuk pulang.</p>
+     <p>"Besok aku gak jemput ya Sayang. Ada orang interior yang mau dateng buat ngomongin cabang yang di Bandung. Tapi kalau kamu mau, abis siaran datang ke tempat aku aja ya." Satria memakai kembali jaketnya lalu mencium puncak kepala Pearly.</p>
+     <p>"Oke, besok aku telepon. Kamu jangan ngebut- ngebut ya Sayang" Pearly ikut berdiri untuk mengantar Satria sampai gerbang.</p>
+     <p>"Cher, gue balik" seru Satria.</p>
+     <p>"Oke Sat. Take care" Cherise mengenakan celemek untuk bersiap mencuci piring.</p>
+      <p>"Sip" Satria memeluk pundak Pearly dengan sebelah tangannya dan berjalan keluar.</p>
+     <p>"Sayang, aku kok masih gak enak hati ya sama yang nelepon itu."</p>
+     <p>"Udah dong, jangan di pikirin. Dia kan cuman iseng. Orang normal mana ada sih yang mau tinggal sendirian di rumah kayak gitu. Pokoknya lain kali jangan pernah tanggepin apa pun dari orang yang nggak kamu kenal. Apalagi tanpa aku. Ingat ya."</p>
+     <p>Pearly hanya mengangguk. Satria mencium keningnya lalu memeluk Pearly selama sepuluh detik sambil mengusap punggungnya.</p>
+     <p>"Ya udah kamu langsung tidur ya. Jangan pikirin macem-macem."</p>
+     <p>"Oke hati hati Sayang."</p>
+     <p>Satria memasuki mobil lalu melambaikan tangan pada Pearly. Setelah mobilnya hilang dari pandangan, Pearly kembali masuk ke rumah.</p>
+       <p>Cherise sudah beres mencuci piring dan mencegat Pearly yang akan memasuki kamarnya.</p>
+      <p>"Eh tunggu-tunggu. Pake ini nih biar meng- hindari mata panda." Cherise memberikan dua iris mentimun dingin pada Pearly.</p>
+     <p>"Ya ampun, mentang-mentang udah jadi owner spa, tidur aja sambil perawatan. Thanks ya."</p>
+     <p>"Hehehe.. mesti dong. Met tidur."</p>
+     <p>Cherise menuju kamarnya yang ada di lantai dua. Sementara Pearly memasuki kamarnya sendiri yang ada di lantai bawah. Dia menutup matanya dengan mentimun tetapi pikirannya melayang ke suara Rachel yang masih terdengar jelas ketakutan.</p>
+            <a href="#" class="back-button" onclick="showPage('horror-book1')">Kembali ke Daftar Isi</a>
+            </div>
+        <!-- Buku Horor 2 -->
+        <div id="horror-book2" class="page">
+            <h2>Buku Horor 2</h2>
+            <p><strong>Prologue:</strong> Prologue of horror book 2.</p>
+            <h3>Daftar Isi</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('horror-book2-chapter1')">Bagian 1</a></li>
+                <li><a href="#" onclick="showPage('horror-book2-chapter2')">Bagian 2</a></li>
+                <li><a href="#" onclick="showPage('horror-book2-chapter3')">Bagian 3</a></li>
             </ul>
+            <a href="#" class="back-button" onclick="showPage('horror')">Kembali ke Buku Horor</a>
         </div>
-        <div id="book2-chapter1" class="page">
-            <h2>Book 2: Chapter 1</h2>
-            <p>This is the content of chapter 1.</p>
-            <p><strong>Page:</strong> 1</p>
+        <div id="horror-book2-chapter1" class="page">
+            <h2>Buku Horor 2: Bagian 1</h2>
+            <p>COMING SOON 1.</p>
+            <p><strong>Bagian:</strong> 1</p>
+            <a href="#" class="back-button" onclick="showPage('horror-book2')">Kembali ke Daftar Isi</a>
         </div>
-        <div id="book2-chapter2" class="page">
-            <h2>Book 2: Chapter 2</h2>
-            <p>This is the content of chapter 2.</p>
-            <p><strong>Page:</strong> 2</p>
+        <div id="horror-book2-chapter2" class="page">
+            <h2>Buku Horor 2: Bagian 2</h2>
+            <p>COMING SOON 2.</p>
+            <p><strong>Bagian:</strong> 2</p>
+            <a href="#" class="back-button" onclick="showPage('horror-book2')">Kembali ke Daftar Isi</a>
         </div>
-        <div id="book2-chapter3" class="page">
-            <h2>Book 2: Chapter 3</h2>
-            <p>This is the content of chapter 3.</p>
-            <p><strong>Page:</strong> 3</p>
+        <div id="horror-book2-chapter3" class="page">
+            <h2>Buku Horor 2: Bagian 3</h2>
+            <p>COMING SOON 3.</p>
+            <p><strong>Bagian:</strong> 3</p>
+            <a href="#" class="back-button" onclick="showPage('horror-book2')">Kembali ke Daftar Isi</a>
+        </div>
+        <!-- Buku Fantasi 1 -->
+        <div id="fantasy-book1" class="page">
+            <h2>Buku Fantasi 1</h2>
+            <p><strong>Prologue:</strong> Prologue of fantasy book 1.</p>
+            <h3>Daftar Isi</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('fantasy-book1-chapter1')">Bagian 1</a></li>
+                <li><a href="#" onclick="showPage('fantasy-book1-chapter2')">Bagian 2</a></li>
+                <li><a href="#" onclick="showPage('fantasy-book1-chapter3')">Bagian 3</a></li>
+            </ul>
+            <a href="#" class="back-button" onclick="showPage('fantasy')">Kembali ke Buku Fantasi</a>
+        </div>
+        <div id="fantasy-book1-chapter1" class="page">
+            <h2>Buku Fantasi 1: Bagian 1</h2>
+            <p>COMING SOON 1.</p>
+            <p><strong>Bagian:</strong> 1</p>
+            <a href="#" class="back-button" onclick="showPage('fantasy-book1')">Kembali ke Daftar Isi</a>
+        </div>
+        <div id="fantasy-book1-chapter2" class="page">
+            <h2>Buku Fantasi 1: Bagian 2</h2>
+            <p>COMING SOON 2.</p>
+            <p><strong>Bagian:</strong> 2</p>
+            <a href="#" class="back-button" onclick="showPage('fantasy-book1')">Kembali ke Daftar Isi</a>
+        </div>
+        <div id="fantasy-book1-chapter3" class="page">
+            <h2>Buku Fantasi 1: Bagian 3</h2>
+            <p>COMING SOON 3.</p>
+            <p><strong>Bagian:</strong> 3</p>
+            <a href="#" class="back-button" onclick="showPage('fantasy-book1')">Kembali ke Daftar Isi</a>
+        </div>
+        <!-- Buku Fantasi 2 -->
+        <div id="fantasy-book2" class="page">
+            <h2>Buku Fantasi 2</h2>
+            <p><strong>Prologue:</strong> Prologue of fantasy book 2.</p>
+            <h3>Daftar Isi</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('fantasy-book2-chapter1')">Bagian 1</a></li>
+                <li><a href="#" onclick="showPage('fantasy-book2-chapter2')">Bagian 2</a></li>
+                <li><a href="#" onclick="showPage('fantasy-book2-chapter3')">Bagian 3</a></li>
+            </ul>
+            <a href="#" class="back-button" onclick="showPage('fantasy')">Kembali ke Buku Fantasi</a>
+        </div>
+        <div id="fantasy-book2-chapter1" class="page">
+            <h2>Buku Fantasi 2: Bagian 1</h2>
+            <p>COMING SOON 1.</p>
+            <p><strong>Bagian:</strong> 1</p>
+            <a href="#" class="back-button" onclick="showPage('fantasy-book2')">Kembali ke Daftar Isi</a>
+        </div>
+        <div id="fantasy-book2-chapter2" class="page">
+            <h2>Buku Fantasi 2: Bagian 2</h2>
+            <p>COMING SOON 2.</p>
+            <p><strong>Bagian:</strong> 2</p>
+            <a href="#" class="back-button" onclick="showPage('fantasy-book2')">Kembali ke Daftar Isi</a>
+        </div>
+        <div id="fantasy-book2-chapter3" class="page">
+            <h2>Buku Fantasi 2: Bagian 3</h2>
+            <p>COMING SOON 3.</p>
+            <p><strong>Bagian:</strong> 3</p>
+            <a href="#" class="back-button" onclick="showPage('fantasy-book2')">Kembali ke Daftar Isi</a>
+        </div>
+        <!-- Buku Romantis 1 -->
+        <div id="romance-book1" class="page">
+            <h2>Buku Romantis 1</h2>
+            <p><strong>Prologue:</strong> Prologue of romance book 1.</p>
+            <h3>Daftar Isi</h3>
+            <ul>
+                <li><a href="#" onclick="showPage('romance-book1-chapter1')">Bagian 1</a></li>
+                <li><a href="#" onclick="showPage('romance-book1-chapter2')">Bagian 2</a></li>
+                <li><a href="#" onclick="showPage('romance-book1-chapter3')">Bagian 3</a></li>
+            </ul>
+            <a href="#" class="back-button" onclick="showPage('romance')">Kembali ke Buku Romantis</a>
+        </div>
+        <div id="romance-book1-chapter1" class="page">
+            <h2>Buku Romantis 1: Bagian 1</h2>
+            <p>COMING SOON 1.</p>
+            <p><strong>Bagian:</strong> 1</p>
+            <a href="#" class="back-button" onclick="showPage('romance-book1')">Kembali ke Daftar Isi</a>
+        </div>
+        <div id="romance-book1-chapter2" class="page">
+            <h2>Buku Romantis 1: Bagian 2</h2>
+            <p>COMING SOON 2.</p>
+            <p><strong>Bagian:</strong> 2</p>
+            <a href="#" class="back-button" onclick="showPage('romance-book1')">Kembali ke Daftar Isi</a>
+        </div>
+        <div id="romance-book1-chapter3" class="page">
+            <h2>Buku Romantis 1: Bagian 3</h2>
+            <p>COMING SOON 3.</p>
+            <p><strong>Bagian:</strong> 3</p>
+            <a href="#" class="back-button" onclick="showPage('romance-book1')">Kembali ke Daftar Isi</a>
+        </div>
+        <!-- Buku Romantis 2 -->
+        <div id="romance-book2" class="page">
+            <h2>Buku Romantis 2</h2>
+            <p><strong>Prologue:</strong> Prologue of romance book 2.</p>
+            <h3>Daftar Isi</h3>
+            <ul>
+               <li><a href="#" onclick="showPage('romance-book2-chapter1')">Bagian 1</a></li>
+                <li><a href="#" onclick="showPage('romance-book2-chapter2')">Bagian 2</a></li>
+                <li><a href="#" onclick="showPage('romance-book2-chapter3')">Bagian 3</a></li>
+            </ul>
+            <a href="#" class="back-button" onclick="showPage('romance')">Kembali ke Buku Romantis</a>
+        </div>
+        <div id="romance-book2-chapter1" class="page">
+            <h2>Buku Romantis 2: Bagian 1</h2>
+            <p>COMING SOON 1.</p>
+            <p><strong>Bagian:</strong> 1</p>
+            <a href="#" class="back-button" onclick="showPage('romance-book2')">Kembali ke Daftar Isi</a>
+        </div>
+        <div id="romance-book2-chapter2" class="page">
+            <h2>Buku Romantis 2: Bagian 2</h2>
+            <p>COMING SOON 2.</p>
+            <p><strong>Bagian:</strong> 2</p>
+            <a href="#" class="back-button" onclick="showPage('romance-book2')">Kembali ke Daftar Isi</a>
+        </div>
+        <div id="romance-book2-chapter3" class="page">
+            <h2>Buku Romantis 2: Bagian 3</h2>
+            <p>COMING SOON 3.</p>
+            <p><strong>Bagian:</strong> 3</p>
+            <a href="#" class="back-button" onclick="showPage('romance-book2')">Kembali ke Daftar Isi</a>
         </div>
     </div>
-    <footer>
-        <p>Web E-Book &copy; 2024</p>
-    </footer>
     <script>
         function showPage(pageId) {
-            var pages = document.querySelectorAll('.page');
-            pages.forEach(function(page) {
+            document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
+                page.classList.add('fade-out');
             });
-            document.getElementById(pageId).classList.add('active');
+            document.getElementById(pageId).classList.add('fade-in');
+            setTimeout(() => {
+                document.getElementById(pageId).classList.remove('fade-in', 'fade-out');
+                document.getElementById(pageId).classList.add('active');
+            }, 300);
         }
     </script>
 </body>
